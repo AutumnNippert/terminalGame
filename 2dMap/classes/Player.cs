@@ -17,7 +17,7 @@ namespace _2dMap.classes
         public int yPos;
 
         public string[] inventory = new string[10];
-        public void setInventory()
+        public void clearInventory()
         {
             inventory[0] = "empty";
             inventory[1] = "empty";
@@ -31,7 +31,7 @@ namespace _2dMap.classes
             inventory[9] = "empty";
         }
 
-        public void makePlayer(int health, int armor, int xPos, int yPos)
+        public void spawnPlayer(int health, int armor, int xPos, int yPos)
         {
             Player player = new Player();
             player.setHealth(health);
@@ -93,7 +93,7 @@ namespace _2dMap.classes
                     return item + " successfully removed from inventory";
                 }
             }
-            return "your inventory is full";
+            return "you do not have this item";
         }
         public string getInventory(int index)
         {
