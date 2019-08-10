@@ -1,0 +1,7 @@
+C:\Users\chris\source\repos\2dMap\2dMap\bin\Debug\2dMap.exe.config
+C:\Users\chris\source\repos\2dMap\2dMap\bin\Debug\2dMap.exe
+C:\Users\chris\source\repos\2dMap\2dMap\bin\Debug\2dMap.pdb
+C:\Users\chris\source\repos\2dMap\2dMap\obj\Debug\2dMap.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\2dMap\2dMap\obj\Debug\2dMap.csproj.CoreCompileInputs.cache
+C:\Users\chris\source\repos\2dMap\2dMap\obj\Debug\2dMap.exe
+C:\Users\chris\source\repos\2dMap\2dMap\obj\Debug\2dMap.pdb
