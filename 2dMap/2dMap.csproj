@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\Grid.cs" />
+    <Compile Include="classes\Enemy.cs" />
+    <Compile Include="classes\Fight.cs" />
+    <Compile Include="classes\MyUtil.cs" />
     <Compile Include="classes\Player.cs" />
+    <Compile Include="levels\LevelSelect.cs" />
+    <Compile Include="levels\Tutorial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
