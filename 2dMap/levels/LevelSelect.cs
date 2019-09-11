@@ -10,11 +10,13 @@ namespace _2dMap.levels
 {
     class LevelSelect
     {
+        MyUtil util = new MyUtil();
         public void initLevelSelect(Player player)
         {
             bool lvlSelect = true;
             while (lvlSelect == true)
             {
+                player.setLvl();
                 Console.Write("\n>>> ");
                 string command = Console.ReadLine();
                 char[] charSeparators = new char[] { ' ' };
@@ -26,6 +28,23 @@ namespace _2dMap.levels
                         Console.Clear();
                         Tutorial tutorial = new Tutorial();
                         tutorial.InitTutorial(player);
+                    }
+                    if (command == "xp")
+                    {
+                        Console.WriteLine(Convert.ToString(player.xp) + "\n");
+                    }
+                    if (command == "RandomLevel")
+                    {
+                        LevelCreator level = new LevelCreator();
+                        level.initLevel(3, player);
+                    }
+                    if (command == "save")
+                    {
+                        util.saveGame(player);
+                    }
+                    if (command == "load")
+                    {
+                        util.load(player);
                     }
                 }
                 else if (words.Length >= 2)

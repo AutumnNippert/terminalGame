@@ -12,3 +12,5 @@ C:\Users\chris\Documents\GitHub\terminalGame\2dMap\obj\Debug\2dMap.csprojAssembl
 C:\Users\chris\Documents\GitHub\terminalGame\2dMap\obj\Debug\2dMap.csproj.CoreCompileInputs.cache
 C:\Users\chris\Documents\GitHub\terminalGame\2dMap\obj\Debug\2dMap.exe
 C:\Users\chris\Documents\GitHub\terminalGame\2dMap\obj\Debug\2dMap.pdb
+C:\Users\chris\Documents\GitHub\terminalGame\2dMap\bin\Debug\Newtonsoft.Json.dll
+C:\Users\chris\Documents\GitHub\terminalGame\2dMap\obj\Debug\2dMap.csproj.CopyComplete

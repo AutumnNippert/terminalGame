@@ -16,6 +16,20 @@ namespace _2dMap.classes
             player.setHealth();
             player.setArmor();
             player.setAttackDmg();
+            while (player.health > 0 && enemy.health > 0)
+            {
+                displayBattleStats(player, enemy.name, enemy);
+                player.attack(enemy);
+                enemy.attack(player);
+                Console.WriteLine("Press enter to continue...\n");
+                Console.ReadLine();
+            }
+            displayBattleStats(player, enemy.name, enemy);
+            player.attack(enemy);
+            enemy.attack(player);
+            Console.WriteLine("Press enter to continue...\n");
+            Console.ReadLine();
+            player.addXp(Convert.ToInt32(Math.Pow(enemy.health, 1/6)));
         }
 
         public void displayBattleStats(Player player, string enemyName, Enemy enemy)

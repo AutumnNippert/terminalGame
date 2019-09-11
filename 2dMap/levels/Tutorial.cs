@@ -11,41 +11,13 @@ namespace _2dMap.levels
     {
         static MyUtil util = new MyUtil();
         static Fight fight = new Fight();
-        private string generateLootItem()
-        {
-            string[] items = new string[20];
-            items[0] = "acorn";
-            items[1] = "acorn";
-            items[2] = "acorn";
-            items[3] = "acorn";
-            items[4] = "acorn";
-            items[5] = "acorn";
-            items[6] = "acorn";
-            items[7] = "acorn";
-            items[8] = "acorn";
-            items[9] = "beginner sword lvl 2";
-            items[10] = "beginner shield lvl 2";
-            items[11] = "beginner shield lvl 2";
-            items[12] = "beginner shield lvl 2";
-            items[13] = "baguette";
-            items[14] = "baguette";
-            items[15] = "baguette";
-            items[16] = "baguette";
-            items[17] = "baguette";
-            items[18] = "baguette";
-            items[19] = "baguette";
-
-            int number = util.RandomNumber(0, 19);
-            string item = items[number];
-            return item;
-
-        }
+        
         public void InitTutorial(Player player)
         {
             string text = (
                 "   Hey player, im your personal AI named Ai, so convenient right?\n" +
                 "Yeah, my programmer wasn't exactly very goo-- OH SHIT, THERE'S\n" +
-                "A DUMMY THAT JUST APPEARED RIGHT THE FUCK IN FRONT OF YOU oh shit\n" +
+                "A DUMMY THAT JUST APPEARED RIGHT IN FRONT OF YOU oh shit\n" +
                 "it was just me haha XD. Don't worry, it's just a simulated entity\n" +
                 "so he can't hurt you.\n\n" +
                 "   This is a test so you can get grips with the fighting mechanics of \n" +
@@ -61,13 +33,13 @@ namespace _2dMap.levels
             Console.ReadLine();
             Console.WriteLine("You have pissed off the dummy! He wanna fight!");
             Enemy dummy = new Enemy();
-            dummy.spwanEnemy(5, 5, 0, 0);
-            fight.initFight(player, dummy);
-            Console.WriteLine("\ndummy health is " + dummy.health);
-            Console.WriteLine("dummy armor is " + dummy.armor + "\n");
-            Console.WriteLine("player health is " + player.health);
-            Console.WriteLine("player armor is " + player.armor + "\n");
+            dummy.spawnEnemy(5, 5, 0, 0, "dummy");
+            //Console.WriteLine("\ndummy health is " + dummy.health);
+            //Console.WriteLine("dummy armor is " + dummy.armor + "\n");
+            //Console.WriteLine("player health is " + player.health);
+            //Console.WriteLine("player armor is " + player.armor + "\n");
             Console.Write(">>> ok");
+            fight.initFight(player, dummy);
             Console.ReadLine();
             while (player.health > 0 && dummy.health > 0)
             {
@@ -100,7 +72,7 @@ namespace _2dMap.levels
             Console.Write(">>> shit!");
             Console.ReadLine();
             Enemy wrongDummy = new Enemy();
-            wrongDummy.spwanEnemy(99999999, 99999999, 1, 1);
+            wrongDummy.spawnEnemy(99999999, 99999999, 1, 1, "wrong Dummy");
             Console.WriteLine("dummy health now at " + wrongDummy.health);
             Console.WriteLine("dummy armor now at " + wrongDummy.armor + "\n");
             Console.WriteLine("player health now at 1");
@@ -120,7 +92,7 @@ namespace _2dMap.levels
             }
             Console.Write(">>> What just happened?");
             Console.ReadLine();
-            string item = generateLootItem();
+            string item = util.generateSmallLootItem();
             string dialogue = (
                 "\nlooks like he dropped a " + item + "!\n" +
                 "Each time you complete a level, you have the chance\n" +

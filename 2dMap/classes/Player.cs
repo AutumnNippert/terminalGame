@@ -11,10 +11,13 @@ namespace _2dMap.classes
 {
     public class Player
     {
+        public int lvl = 1;
         public int health = 10;
         public int armor = 0;
-        public int attackDmgRange1;
-        public int attackDmgRange2;
+        public int atk = 0;
+        public int xp = 0;
+
+
 
         public string[] inventory = new string[10];
 
@@ -87,8 +90,7 @@ namespace _2dMap.classes
                 {
                     if (item == "master sword")
                     {
-                        attackDmgRange1 = 20;
-                        attackDmgRange2 = 100;
+                        atk = 100 * lvl;
                         break;
                     }
                     String sword = m.Groups[1].ToString();
@@ -101,72 +103,60 @@ namespace _2dMap.classes
                     {
                         if (level == "1")
                         {
-                            attackDmgRange1 = 1;
-                            attackDmgRange2 = 3;
+                            atk = Convert.ToInt32(2 * Math.Pow(lvl, 5));
                         }
                         if (level == "2")
                         {
-                            attackDmgRange1 = 3;
-                            attackDmgRange2 = 5;
+                            atk = Convert.ToInt32(3 * Math.Pow(lvl, 5));
                         }
                         if (level == "3")
                         {
-                            attackDmgRange1 = 5;
-                            attackDmgRange2 = 8;
+                            atk = Convert.ToInt32(5 * Math.Pow(lvl, 5));
                         }
                     }
                     else if (sword == "wooden")
                     {
                         if (level == "1")
                         {
-                            attackDmgRange1 = 8;
-                            attackDmgRange2 = 12;
+                            atk = 8 * lvl;
                         }
                         if (level == "2")
                         {
-                            attackDmgRange1 = 12;
-                            attackDmgRange2 = 16;
+                            atk = 12 * lvl;
                         }
                         if (level == "3")
                         {
-                            attackDmgRange1 = 16;
-                            attackDmgRange2 = 20;
+                            atk = 16 * lvl;
                         }
                     }
                     else if (sword == "iron")
                     {
                         if (level == "1")
                         {
-                            attackDmgRange1 = 20;
-                            attackDmgRange2 = 25;
+                            atk = 20 * lvl;
                         }
                         if (level == "2")
                         {
-                            attackDmgRange1 = 25;
-                            attackDmgRange2 = 30;
+                            atk = 25 * lvl;
                         }
                         if (level == "3")
                         {
-                            attackDmgRange1 = 30;
-                            attackDmgRange2 = 40;
+                            atk = 30 * lvl;
                         }
                     }
                     else if (sword == "ancient")
                     {
                         if (level == "1")
                         {
-                            attackDmgRange1 = 40;
-                            attackDmgRange2 = 50;
+                            atk = 40 * lvl;
                         }
                         if (level == "2")
                         {
-                            attackDmgRange1 = 50;
-                            attackDmgRange2 = 60;
+                            atk = 50 * lvl;
                         }
                         if (level == "3")
                         {
-                            attackDmgRange1 = 60;
-                            attackDmgRange2 = 70;
+                            atk = 60 * lvl;
                         }
                     }
                     else
@@ -271,14 +261,39 @@ namespace _2dMap.classes
         }
         public void attack(Enemy enemy)
         {
+            int atkDmg = 0;
+
+            do
+            {
+                atkDmg = util.RandomNumber(atk - (5 * lvl), atk + (5 * lvl));
+            }
+            while (atkDmg <= 0);
+            if (atkDmg <= 0)
+            {
+                attack(enemy);
+            }
             if (enemy.armor > 0)
             {
-                enemy.armor = enemy.armor - util.RandomNumber(attackDmgRange1, attackDmgRange2);
+                enemy.armor = enemy.armor - atkDmg;
+            }
+            else if (enemy.health > 0)
+            {
+                enemy.armor = 0;
+                enemy.health = enemy.health - atkDmg;
             }
             else
             {
-                enemy.health = enemy.health - util.RandomNumber(attackDmgRange1, attackDmgRange2);
+                enemy.health = 0;
             }
+        }
+        //setLvl sets thelevel of the player based on the xp they have aquired
+        public void setLvl()
+        {
+            lvl = Convert.ToInt32(Math.Pow(xp, (1 / 6)));
+        }
+        public void addXp(int Xp)
+        {
+            xp = xp + Xp;
         }
     }
 }

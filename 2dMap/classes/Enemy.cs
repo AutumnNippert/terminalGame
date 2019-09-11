@@ -10,31 +10,37 @@ namespace _2dMap.classes
 {
     public class Enemy
     {
+        public int lvl;
         public int health;
         public int armor;
-        public int attackDmgRange1;
-        public int attackDmgRange2;
+        public int atk;
+        public string name;
 
         static MyUtil util = new MyUtil();
 
-        public void spwanEnemy(int Health, int Armor, int AtkRng1, int AtkRng2)
+        public void spawnEnemy(int Health, int Armor, int Atk, int Lvl, string Name)
         {
+            lvl = Lvl;
             health = Health;
             armor = Armor;
-            attackDmgRange1 = AtkRng1;
-            attackDmgRange2 = AtkRng2;
+            atk = Atk;
+            name = Name;
         }
         public void attack(Player player)
         {
             if(player.armor > 0)
             {
-                player.armor = player.armor - util.RandomNumber(attackDmgRange1, attackDmgRange2);
+                player.armor = player.armor - util.RandomNumber(atk - (5 * lvl), atk + (5 * lvl));
+            }
+            else if(player.health > 0)
+            {
+                player.armor = 0;
+                player.health = player.health - util.RandomNumber(atk - (2 * lvl), atk + (2 * lvl));
             }
             else
             {
-                player.health = player.health - util.RandomNumber(attackDmgRange1, attackDmgRange2);
+                player.health = 0;
             }
-            
         }
     }
 }
