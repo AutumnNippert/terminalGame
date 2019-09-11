@@ -26,7 +26,7 @@ namespace _2dMap
             player.addToInventory("acorn");
             player.addToInventory("acorn");
             player.addToInventory("Chicken");
-            player.addToInventory("beginner shield lvl 1");
+            player.addToInventory("ancient shield lvl 1");
             player.addToInventory("beginner sword lvl 1");
             player.setArmor();
             Console.WriteLine(player.getArmor());

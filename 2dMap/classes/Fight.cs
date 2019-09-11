@@ -13,7 +13,6 @@ namespace _2dMap.classes
         {
             Console.Clear();
             Console.WriteLine("Fight\n");
-            player.setHealth();
             player.setArmor();
             player.setAttackDmg();
             while (player.health > 0 && enemy.health > 0)

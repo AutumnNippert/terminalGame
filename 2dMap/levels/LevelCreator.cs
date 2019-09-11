@@ -21,10 +21,12 @@ namespace _2dMap.levels
             {
                 string monsterName = util.randName();
                 Enemy enemy = new Enemy();
-                enemy.spawnEnemy(
-                    Convert.ToInt32(Math.Pow(5, playerLevel)),
-                    Convert.ToInt32(Math.Pow(2, playerLevel)),
-                    Convert.ToInt32(Math.Pow(5, playerLevel)),
+                enemy.spawnEnemy(player.lvl * util.RandomNumber(2, 3),
+                    player.lvl * util.RandomNumber(2, 5),
+                    player.lvl * util.RandomNumber(2, 4),
+                    //Convert.ToInt32(Math.Pow(5, playerLevel)),
+                    //Convert.ToInt32(Math.Pow(2, playerLevel)),
+                    //Convert.ToInt32(Math.Pow(5, playerLevel)),
                     playerLevel,
                     monsterName);
                 fight.initFight(player, enemy);

@@ -34,10 +34,13 @@ namespace _2dMap.classes
             }
             else if(player.health > 0)
             {
-                player.armor = 0;
                 player.health = player.health - util.RandomNumber(atk - (2 * lvl), atk + (2 * lvl));
             }
-            else
+            if (player.armor < 0)
+            {
+                player.armor = 0;
+            }
+            if (player.health < 0)
             {
                 player.health = 0;
             }

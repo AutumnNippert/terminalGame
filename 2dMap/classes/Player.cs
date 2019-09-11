@@ -278,10 +278,13 @@ namespace _2dMap.classes
             }
             else if (enemy.health > 0)
             {
-                enemy.armor = 0;
                 enemy.health = enemy.health - atkDmg;
             }
-            else
+            if (enemy.armor < 0)
+            {
+                enemy.armor = 0;
+            }
+            if (enemy.health < 0)
             {
                 enemy.health = 0;
             }
